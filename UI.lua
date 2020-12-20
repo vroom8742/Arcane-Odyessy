@@ -447,9 +447,7 @@ UserInputService.InputChanged:Connect(function(input)
         update(input)
     end
 end)
-end
 
 Init:tabs()
 Init:buttons()
 Init:logger()
-
