@@ -195,6 +195,56 @@ local function chestfarm()
 end)
 end
 
+local function Invis()
+    if getgenv().invis then
+        local Player   = game:GetService('Players').LocalPlayer
+        local Mouse    = Player:GetMouse()
+        
+        local AutoRun  = false
+        local AirTP    = false
+        
+        local function CheckRig()
+            if Player.Character then
+                local Humanoid = Player.Character:WaitForChild('Humanoid')
+                if Humanoid.RigType == Enum.HumanoidRigType.R15 then
+                    return 'R15'
+                else
+                    return 'R6'
+                end
+            end
+        end
+    
+        local Character = Player.Character
+        local StoredCF = Character.PrimaryPart.CFrame
+        if AirTP then
+            local Part = Instance.new('Part',workspace)
+            Part.Size = Vector3.new(5,0,5)
+            Part.Anchored = true
+            Part.CFrame = CFrame.new(Vector3.new(9999,9999,9999))
+            Character.PrimaryPart.CFrame = Part.CFrame*CFrame.new(0,3,0)
+            spawn(function()
+                wait(3)
+                Part:Destroy()
+            end)
+        end
+        if CheckRig() == 'R6' then
+            local Clone = Character.HumanoidRootPart:Clone()
+            Character.HumanoidRootPart:Destroy()
+            Clone.Parent = Character
+        else
+            local Clone = Character.LowerTorso.Root:Clone()
+            Character.LowerTorso.Root:Destroy()
+            Clone.Parent = Character.LowerTorso
+        end
+        if AirTP then
+            wait(1)
+            Character.PrimaryPart.CFrame = StoredCF
+        end
+    else
+        Character.Humanoid.Health = 0
+    end
+end
+
 function Init:buttons()
     local TweenService = game:GetService("TweenService")
     local TweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
@@ -306,9 +356,13 @@ function Init:buttons()
         if not onoff2 then onoff2 = true
             new5:play()
             TextButton_5.Text = "ON"
+            getgenv().invis = true
+            Invis()
         else onoff2 = false
             old5:play()
             TextButton_5.Text = "OFF"
+            getgenv().invis = false
+            Invis()
         end
     end)
 end
