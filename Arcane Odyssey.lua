@@ -60,7 +60,7 @@ local function AutoFish()
 end
 
 local function chestfarm()
-    return
+    return nil
 end
 
 local function Invis()
