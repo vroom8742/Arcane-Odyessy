@@ -12,23 +12,20 @@ local Functions = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
 local UIPadding = Instance.new("UIPadding")
 local God = Instance.new("TextLabel")
-local TextButton = Instance.new("TextButton")
+local GM = Instance.new("TextButton")
 local NPC = Instance.new("TextLabel")
 local TextBox = Instance.new("TextBox")
 local Teleport = Instance.new("ImageLabel")
 local Frame = Instance.new("ImageLabel")
-local TextButton_2 = Instance.new("TextButton")
+local TextButton = Instance.new("TextButton")
 local UIGradient_2 = Instance.new("UIGradient")
-local Top = Instance.new("Frame")
-local UIGradient_3 = Instance.new("UIGradient")
-local TextLabel = Instance.new("TextLabel")
 local List = Instance.new("Frame")
 local Outline = Instance.new("ImageLabel")
 local Inside = Instance.new("ImageLabel")
 local UIListLayout_2 = Instance.new("UIListLayout")
 local Frame_2 = Instance.new("ImageLabel")
-local TextLabel_2 = Instance.new("TextLabel")
-local UIGradient_4 = Instance.new("UIGradient")
+local TextLabel = Instance.new("TextLabel")
+local UIGradient_3 = Instance.new("UIGradient")
 local Frame_3 = Instance.new("Frame")
 local Frame_4 = Instance.new("Frame")
 local UIListLayout_3 = Instance.new("UIListLayout")
@@ -38,48 +35,55 @@ local ItemTab = Instance.new("TextButton")
 local MiscTab = Instance.new("TextButton")
 local Frame_5 = Instance.new("Frame")
 local Frame_6 = Instance.new("ImageLabel")
-local TextLabel_3 = Instance.new("TextLabel")
-local UIGradient_5 = Instance.new("UIGradient")
+local TextLabel_2 = Instance.new("TextLabel")
+local UIGradient_4 = Instance.new("UIGradient")
 local Frame_7 = Instance.new("Frame")
 local BindTab = Instance.new("TextButton")
 local ColorTab = Instance.new("TextButton")
 local Auto = Instance.new("Frame")
-local UIGradient_6 = Instance.new("UIGradient")
+local UIGradient_5 = Instance.new("UIGradient")
 local textlabel_2 = Instance.new("TextLabel")
 local Functions_2 = Instance.new("ScrollingFrame")
 local UIListLayout_4 = Instance.new("UIListLayout")
 local UIPadding_2 = Instance.new("UIPadding")
 local Fish = Instance.new("TextLabel")
-local TextButton_3 = Instance.new("TextButton")
+local AF = Instance.new("TextButton")
 local Chest = Instance.new("TextLabel")
-local TextButton_4 = Instance.new("TextButton")
+local CF = Instance.new("TextButton")
 local Logger = Instance.new("Frame")
-local UIGradient_7 = Instance.new("UIGradient")
+local UIGradient_6 = Instance.new("UIGradient")
 local textlabel_3 = Instance.new("TextLabel")
 local ScrollingFrame = Instance.new("ScrollingFrame")
 local UIListLayout_5 = Instance.new("UIListLayout")
 local Misc = Instance.new("Frame")
-local UIGradient_8 = Instance.new("UIGradient")
+local UIGradient_7 = Instance.new("UIGradient")
 local button = Instance.new("TextButton")
 local textlabel_4 = Instance.new("TextLabel")
 local Functions_3 = Instance.new("ScrollingFrame")
 local UIListLayout_6 = Instance.new("UIListLayout")
 local UIPadding_3 = Instance.new("UIPadding")
 local Invis = Instance.new("TextLabel")
-local TextButton_6 = Instance.new("TextButton")
+local IV = Instance.new("TextButton")
 local IY = Instance.new("ImageLabel")
 local Frame_8 = Instance.new("ImageLabel")
-local TextButton_7 = Instance.new("TextButton")
-local UIGradient_9 = Instance.new("UIGradient")
+local Yield = Instance.new("TextButton")
+local UIGradient_8 = Instance.new("UIGradient")
 local Keybinds = Instance.new("Frame")
-local UIGradient_10 = Instance.new("UIGradient")
+local UIGradient_9 = Instance.new("UIGradient")
 local textlabel_5 = Instance.new("TextLabel")
 local Functions_4 = Instance.new("ScrollingFrame")
 local UIListLayout_7 = Instance.new("UIListLayout")
 local UIPadding_4 = Instance.new("UIPadding")
 local OH = Instance.new("TextLabel")
 local TextBox_2 = Instance.new("TextBox")
+local Top = Instance.new("Frame")
+local UIGradient_10 = Instance.new("UIGradient")
+local TextLabel_3 = Instance.new("TextLabel")
+local UIPadding_5 = Instance.new("UIPadding")
 
+--Properties:
+
+Skidhub.Name = "Skidhub"
 Skidhub.Parent = game:GetService("CoreGui")
 
 Main.Name = "Main"
@@ -87,6 +91,7 @@ Main.Parent = Skidhub
 Main.AnchorPoint = Vector2.new(0.5, 0.5)
 Main.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 Main.BorderSizePixel = 0
+Main.ClipsDescendants = true
 Main.Position = UDim2.new(0.5, 0, 0.5, 0)
 Main.Size = UDim2.new(0, 652, 0, 265)
 
@@ -97,7 +102,7 @@ Character.BorderSizePixel = 0
 Character.Position = UDim2.new(0.2306858, 0, 0.109043792, 0)
 Character.Size = UDim2.new(0, 492, 0, 18)
 
-UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(51, 218, 255))}
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(51, 218, 255))}
 UIGradient.Parent = Character
 
 textlabel.Name = "textlabel"
@@ -140,17 +145,18 @@ God.TextColor3 = Color3.fromRGB(255, 255, 255)
 God.TextSize = 14.000
 God.TextXAlignment = Enum.TextXAlignment.Left
 
-TextButton.Parent = God
-TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.BackgroundTransparency = 1.000
-TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.991036296, 0, 0.0399999991, 0)
-TextButton.Size = UDim2.new(0, 40, 0, 25)
-TextButton.Font = Enum.Font.Gotham
-TextButton.Text = "OFF"
-TextButton.TextColor3 = Color3.fromRGB(175, 175, 175)
-TextButton.TextSize = 14.000
-TextButton.TextXAlignment = Enum.TextXAlignment.Left
+GM.Name = "GM"
+GM.Parent = God
+GM.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GM.BackgroundTransparency = 1.000
+GM.BorderSizePixel = 0
+GM.Position = UDim2.new(0.991036296, 0, 0.0399999991, 0)
+GM.Size = UDim2.new(0, 40, 0, 25)
+GM.Font = Enum.Font.Gotham
+GM.Text = "OFF"
+GM.TextColor3 = Color3.fromRGB(175, 175, 175)
+GM.TextSize = 14.000
+GM.TextXAlignment = Enum.TextXAlignment.Left
 
 NPC.Name = "NPC"
 NPC.Parent = Functions
@@ -186,7 +192,7 @@ Teleport.Image = "rbxassetid://3570695787"
 Teleport.ImageColor3 = Color3.fromRGB(75, 75, 75)
 Teleport.ScaleType = Enum.ScaleType.Slice
 Teleport.SliceCenter = Rect.new(100, 100, 100, 100)
-Teleport.SliceScale = 0.04
+Teleport.SliceScale = 0.040
 
 Frame.Name = "Frame"
 Frame.Parent = Teleport
@@ -200,53 +206,30 @@ Frame.Image = "rbxassetid://3570695787"
 Frame.ImageColor3 = Color3.fromRGB(200, 200, 200)
 Frame.ScaleType = Enum.ScaleType.Slice
 Frame.SliceCenter = Rect.new(100, 100, 100, 100)
-Frame.SliceScale = 0.04
+Frame.SliceScale = 0.040
 
+TextButton.Parent = Frame
+TextButton.AnchorPoint = Vector2.new(0.5, 0.5)
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 1.000
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextButton.Size = UDim2.new(0, 176, 0, 18)
+TextButton.Font = Enum.Font.Gotham
+TextButton.Text = "Teleport to NPC"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextSize = 13.000
 
-TextButton_2.Parent = Frame
-TextButton_2.AnchorPoint = Vector2.new(0.5, 0.5)
-TextButton_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton_2.BackgroundTransparency = 1.000
-TextButton_2.BorderSizePixel = 0
-TextButton_2.Position = UDim2.new(0.5, 0, 0.5, 0)
-TextButton_2.Size = UDim2.new(0, 176, 0, 18)
-TextButton_2.Font = Enum.Font.Gotham
-TextButton_2.Text = "Teleport to NPC"
-TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextButton_2.TextSize = 13.000
-
-UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(51, 218, 255))}
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(51, 218, 255))}
 UIGradient_2.Parent = Frame
-
-Top.Name = "Top"
-Top.Parent = Main
-Top.AnchorPoint = Vector2.new(0.5, 0)
-Top.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Top.BorderSizePixel = 0
-Top.Position = UDim2.new(0.499836683, 0, 0, 0)
-Top.Size = UDim2.new(0, 652, 0, 19)
-
-UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(51, 218, 255))}
-UIGradient_3.Parent = Top
-
-TextLabel.Parent = Top
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0.00693193078, 0, 0, 0)
-TextLabel.Size = UDim2.new(0, 100, 0, 19)
-TextLabel.Font = Enum.Font.Gotham
-TextLabel.Text = "Skidhub"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 14.000
-TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 List.Name = "List"
 List.Parent = Main
 List.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+List.BackgroundTransparency = 1.000
 List.BorderSizePixel = 0
-List.Position = UDim2.new(-8.3431878e-05, 0, 0.0716981143, 0)
-List.Size = UDim2.new(0, 150, 0, 245)
+List.Position = UDim2.new(0, 0, 0.0754716992, 0)
+List.Size = UDim2.new(0, 149, 0, 245)
 
 Outline.Name = "Outline"
 Outline.Parent = List
@@ -259,8 +242,7 @@ Outline.Image = "rbxassetid://3570695787"
 Outline.ImageColor3 = Color3.fromRGB(75, 75, 75)
 Outline.ScaleType = Enum.ScaleType.Slice
 Outline.SliceCenter = Rect.new(100, 100, 100, 100)
-Outline.SliceScale = 0.04
-
+Outline.SliceScale = 0.040
 
 Inside.Name = "Inside"
 Inside.Parent = Outline
@@ -275,8 +257,7 @@ Inside.Image = "rbxassetid://3570695787"
 Inside.ImageColor3 = Color3.fromRGB(30, 30, 30)
 Inside.ScaleType = Enum.ScaleType.Slice
 Inside.SliceCenter = Rect.new(100, 100, 100, 100)
-Inside.SliceScale = 0.04
-
+Inside.SliceScale = 0.040
 
 UIListLayout_2.Parent = Inside
 UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
@@ -291,23 +272,22 @@ Frame_2.Image = "rbxassetid://3570695787"
 Frame_2.ImageColor3 = Color3.fromRGB(200, 200, 200)
 Frame_2.ScaleType = Enum.ScaleType.Slice
 Frame_2.SliceCenter = Rect.new(100, 100, 100, 100)
-Frame_2.SliceScale = 0.01
+Frame_2.SliceScale = 0.010
 
+TextLabel.Parent = Frame_2
+TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextLabel.Size = UDim2.new(0, 131, 0, 15)
+TextLabel.Font = Enum.Font.Gotham
+TextLabel.Text = "Main"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
 
-TextLabel_2.Parent = Frame_2
-TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.BorderSizePixel = 0
-TextLabel_2.Position = UDim2.new(0.5, 0, 0.5, 0)
-TextLabel_2.Size = UDim2.new(0, 131, 0, 15)
-TextLabel_2.Font = Enum.Font.Gotham
-TextLabel_2.Text = "Main"
-TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.TextSize = 14.000
-
-UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(51, 218, 255))}
-UIGradient_4.Parent = Frame_2
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(51, 218, 255))}
+UIGradient_3.Parent = Frame_2
 
 Frame_3.Parent = Inside
 Frame_3.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
@@ -384,22 +364,22 @@ Frame_6.Image = "rbxassetid://3570695787"
 Frame_6.ImageColor3 = Color3.fromRGB(200, 200, 200)
 Frame_6.ScaleType = Enum.ScaleType.Slice
 Frame_6.SliceCenter = Rect.new(100, 100, 100, 100)
-Frame_6.SliceScale = 0.01
+Frame_6.SliceScale = 0.010
 
-TextLabel_3.Parent = Frame_6
-TextLabel_3.AnchorPoint = Vector2.new(0.5, 0.5)
-TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_3.BackgroundTransparency = 1.000
-TextLabel_3.BorderSizePixel = 0
-TextLabel_3.Position = UDim2.new(0.5, 0, 0.5, 0)
-TextLabel_3.Size = UDim2.new(0, 131, 0, 15)
-TextLabel_3.Font = Enum.Font.Gotham
-TextLabel_3.Text = "Settings"
-TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_3.TextSize = 14.000
+TextLabel_2.Parent = Frame_6
+TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextLabel_2.Size = UDim2.new(0, 131, 0, 15)
+TextLabel_2.Font = Enum.Font.Gotham
+TextLabel_2.Text = "Settings"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 14.000
 
-UIGradient_5.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(51, 218, 255))}
-UIGradient_5.Parent = Frame_6
+UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(51, 218, 255))}
+UIGradient_4.Parent = Frame_6
 
 Frame_7.Parent = Frame_4
 Frame_7.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
@@ -437,8 +417,8 @@ Auto.Position = UDim2.new(0.2306858, 0, 0.109043792, 0)
 Auto.Size = UDim2.new(0, 492, 0, 18)
 Auto.Visible = false
 
-UIGradient_6.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(51, 218, 255))}
-UIGradient_6.Parent = Auto
+UIGradient_5.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(51, 218, 255))}
+UIGradient_5.Parent = Auto
 
 textlabel_2.Name = "textlabel"
 textlabel_2.Parent = Auto
@@ -480,17 +460,18 @@ Fish.TextColor3 = Color3.fromRGB(255, 255, 255)
 Fish.TextSize = 14.000
 Fish.TextXAlignment = Enum.TextXAlignment.Left
 
-TextButton_3.Parent = Fish
-TextButton_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton_3.BackgroundTransparency = 1.000
-TextButton_3.BorderSizePixel = 0
-TextButton_3.Position = UDim2.new(1, 0, 0.0399999991, 0)
-TextButton_3.Size = UDim2.new(0, 40, 0, 25)
-TextButton_3.Font = Enum.Font.Gotham
-TextButton_3.Text = "OFF"
-TextButton_3.TextColor3 = Color3.fromRGB(175, 175, 175)
-TextButton_3.TextSize = 14.000
-TextButton_3.TextXAlignment = Enum.TextXAlignment.Left
+AF.Name = "AF"
+AF.Parent = Fish
+AF.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AF.BackgroundTransparency = 1.000
+AF.BorderSizePixel = 0
+AF.Position = UDim2.new(1, 0, 0.0399999991, 0)
+AF.Size = UDim2.new(0, 40, 0, 25)
+AF.Font = Enum.Font.Gotham
+AF.Text = "OFF"
+AF.TextColor3 = Color3.fromRGB(175, 175, 175)
+AF.TextSize = 14.000
+AF.TextXAlignment = Enum.TextXAlignment.Left
 
 Chest.Name = "Chest"
 Chest.Parent = Functions_2
@@ -505,17 +486,18 @@ Chest.TextColor3 = Color3.fromRGB(255, 255, 255)
 Chest.TextSize = 14.000
 Chest.TextXAlignment = Enum.TextXAlignment.Left
 
-TextButton_4.Parent = Chest
-TextButton_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton_4.BackgroundTransparency = 1.000
-TextButton_4.BorderSizePixel = 0
-TextButton_4.Position = UDim2.new(1, 0, 0.0399999991, 0)
-TextButton_4.Size = UDim2.new(0, 40, 0, 25)
-TextButton_4.Font = Enum.Font.Gotham
-TextButton_4.Text = "OFF"
-TextButton_4.TextColor3 = Color3.fromRGB(175, 175, 175)
-TextButton_4.TextSize = 14.000
-TextButton_4.TextXAlignment = Enum.TextXAlignment.Left
+CF.Name = "CF"
+CF.Parent = Chest
+CF.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CF.BackgroundTransparency = 1.000
+CF.BorderSizePixel = 0
+CF.Position = UDim2.new(1, 0, 0.0399999991, 0)
+CF.Size = UDim2.new(0, 40, 0, 25)
+CF.Font = Enum.Font.Gotham
+CF.Text = "OFF"
+CF.TextColor3 = Color3.fromRGB(175, 175, 175)
+CF.TextSize = 14.000
+CF.TextXAlignment = Enum.TextXAlignment.Left
 
 Logger.Name = "Logger"
 Logger.Parent = Main
@@ -525,8 +507,8 @@ Logger.Position = UDim2.new(0.2306858, 0, 0.109043792, 0)
 Logger.Size = UDim2.new(0, 492, 0, 18)
 Logger.Visible = false
 
-UIGradient_7.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(51, 218, 255))}
-UIGradient_7.Parent = Logger
+UIGradient_6.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(51, 218, 255))}
+UIGradient_6.Parent = Logger
 
 textlabel_3.Name = "textlabel"
 textlabel_3.Parent = Logger
@@ -552,8 +534,6 @@ ScrollingFrame.ScrollBarThickness = 0
 UIListLayout_5.Parent = ScrollingFrame
 UIListLayout_5.SortOrder = Enum.SortOrder.LayoutOrder
 
-
-
 Misc.Name = "Misc"
 Misc.Parent = Main
 Misc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -562,8 +542,8 @@ Misc.Position = UDim2.new(0.2306858, 0, 0.109043792, 0)
 Misc.Size = UDim2.new(0, 492, 0, 18)
 Misc.Visible = false
 
-UIGradient_8.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(51, 218, 255))}
-UIGradient_8.Parent = Misc
+UIGradient_7.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(51, 218, 255))}
+UIGradient_7.Parent = Misc
 
 button.Name = "button"
 button.Parent = Misc
@@ -618,17 +598,18 @@ Invis.TextColor3 = Color3.fromRGB(255, 255, 255)
 Invis.TextSize = 14.000
 Invis.TextXAlignment = Enum.TextXAlignment.Left
 
-TextButton_6.Parent = Invis
-TextButton_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton_6.BackgroundTransparency = 1.000
-TextButton_6.BorderSizePixel = 0
-TextButton_6.Position = UDim2.new(1, 0, 0.0399999991, 0)
-TextButton_6.Size = UDim2.new(0, 45, 0, 25)
-TextButton_6.Font = Enum.Font.Gotham
-TextButton_6.Text = "OFF"
-TextButton_6.TextColor3 = Color3.fromRGB(175, 175, 175)
-TextButton_6.TextSize = 14.000
-TextButton_6.TextXAlignment = Enum.TextXAlignment.Left
+IV.Name = "IV"
+IV.Parent = Invis
+IV.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+IV.BackgroundTransparency = 1.000
+IV.BorderSizePixel = 0
+IV.Position = UDim2.new(1, 0, 0.0399999991, 0)
+IV.Size = UDim2.new(0, 45, 0, 25)
+IV.Font = Enum.Font.Gotham
+IV.Text = "OFF"
+IV.TextColor3 = Color3.fromRGB(175, 175, 175)
+IV.TextSize = 14.000
+IV.TextXAlignment = Enum.TextXAlignment.Left
 
 IY.Name = "IY"
 IY.Parent = Functions_3
@@ -641,7 +622,7 @@ IY.Image = "rbxassetid://3570695787"
 IY.ImageColor3 = Color3.fromRGB(75, 75, 75)
 IY.ScaleType = Enum.ScaleType.Slice
 IY.SliceCenter = Rect.new(100, 100, 100, 100)
-IY.SliceScale = 0.04
+IY.SliceScale = 0.040
 
 Frame_8.Name = "Frame"
 Frame_8.Parent = IY
@@ -655,22 +636,23 @@ Frame_8.Image = "rbxassetid://3570695787"
 Frame_8.ImageColor3 = Color3.fromRGB(200, 200, 200)
 Frame_8.ScaleType = Enum.ScaleType.Slice
 Frame_8.SliceCenter = Rect.new(100, 100, 100, 100)
-Frame_8.SliceScale = 0.04
+Frame_8.SliceScale = 0.040
 
-TextButton_7.Parent = Frame_8
-TextButton_7.AnchorPoint = Vector2.new(0.5, 0.5)
-TextButton_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton_7.BackgroundTransparency = 1.000
-TextButton_7.BorderSizePixel = 0
-TextButton_7.Position = UDim2.new(0.5, 0, 0.5, 0)
-TextButton_7.Size = UDim2.new(0, 176, 0, 18)
-TextButton_7.Font = Enum.Font.Gotham
-TextButton_7.Text = "Infinite Yield"
-TextButton_7.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextButton_7.TextSize = 13.000
+Yield.Name = "Yield"
+Yield.Parent = Frame_8
+Yield.AnchorPoint = Vector2.new(0.5, 0.5)
+Yield.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Yield.BackgroundTransparency = 1.000
+Yield.BorderSizePixel = 0
+Yield.Position = UDim2.new(0.5, 0, 0.5, 0)
+Yield.Size = UDim2.new(0, 176, 0, 18)
+Yield.Font = Enum.Font.Gotham
+Yield.Text = "Infinite Yield"
+Yield.TextColor3 = Color3.fromRGB(255, 255, 255)
+Yield.TextSize = 13.000
 
-UIGradient_9.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(51, 218, 255))}
-UIGradient_9.Parent = Frame_8
+UIGradient_8.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(51, 218, 255))}
+UIGradient_8.Parent = Frame_8
 
 Keybinds.Name = "Keybinds"
 Keybinds.Parent = Main
@@ -680,8 +662,8 @@ Keybinds.Position = UDim2.new(0.2306858, 0, 0.109043792, 0)
 Keybinds.Size = UDim2.new(0, 492, 0, 18)
 Keybinds.Visible = false
 
-UIGradient_10.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(51, 218, 255))}
-UIGradient_10.Parent = Keybinds
+UIGradient_9.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(51, 218, 255))}
+UIGradient_9.Parent = Keybinds
 
 textlabel_5.Name = "textlabel"
 textlabel_5.Parent = Keybinds
@@ -733,18 +715,42 @@ TextBox_2.Text = "RightShift"
 TextBox_2.TextColor3 = Color3.fromRGB(175, 175, 175)
 TextBox_2.TextSize = 14.000
 
+Top.Name = "Top"
+Top.Parent = Main
+Top.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Top.BorderSizePixel = 0
+Top.Size = UDim2.new(0, 652, 0, 18)
+
+UIGradient_10.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(28, 130, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(51, 218, 255))}
+UIGradient_10.Parent = Top
+
+TextLabel_3.Parent = Top
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Size = UDim2.new(0, 200, 0, 18)
+TextLabel_3.Font = Enum.Font.Gotham
+TextLabel_3.Text = "Skidhub"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextSize = 16.000
+TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
+
+UIPadding_5.Parent = Top
+UIPadding_5.PaddingLeft = UDim.new(0, 5)
+
 -- Scripts:
 
 
-
-
-local function InitFuncs() --- storing all our functions inside one function
+local function Init()
     local function TB()
         CharTab.MouseButton1Down:Connect(function()CharTab.TextColor3=Color3.fromRGB(255,255,255)Character.Visible=true;FarmTab.TextColor3=Color3.fromRGB(130,130,130)Auto.Visible=false;ItemTab.TextColor3=Color3.fromRGB(130,130,130)Logger.Visible=false;MiscTab.TextColor3=Color3.fromRGB(130,130,130)Misc.Visible=false;BindTab.TextColor3=Color3.fromRGB(130,130,130)Keybinds.Visible=false;ColorTab.TextColor3=Color3.fromRGB(130,130,130)end)FarmTab.MouseButton1Down:Connect(function()CharTab.TextColor3=Color3.fromRGB(130,130,130)Character.Visible=false;FarmTab.TextColor3=Color3.fromRGB(255,255,255)Auto.Visible=true;ItemTab.TextColor3=Color3.fromRGB(130,130,130)Logger.Visible=false;MiscTab.TextColor3=Color3.fromRGB(130,130,130)Misc.Visible=false;BindTab.TextColor3=Color3.fromRGB(130,130,130)Keybinds.Visible=false;ColorTab.TextColor3=Color3.fromRGB(130,130,130)end)ItemTab.MouseButton1Down:Connect(function()CharTab.TextColor3=Color3.fromRGB(130,130,130)Character.Visible=false;FarmTab.TextColor3=Color3.fromRGB(130,130,130)Auto.Visible=false;ItemTab.TextColor3=Color3.fromRGB(255,255,255)Logger.Visible=true;MiscTab.TextColor3=Color3.fromRGB(130,130,130)Misc.Visible=false;BindTab.TextColor3=Color3.fromRGB(130,130,130)Keybinds.Visible=false;ColorTab.TextColor3=Color3.fromRGB(130,130,130)end)MiscTab.MouseButton1Down:Connect(function()CharTab.TextColor3=Color3.fromRGB(130,130,130)Character.Visible=false;FarmTab.TextColor3=Color3.fromRGB(130,130,130)Auto.Visible=false;ItemTab.TextColor3=Color3.fromRGB(130,130,130)Logger.Visible=false;MiscTab.TextColor3=Color3.fromRGB(255,255,255)Misc.Visible=true;BindTab.TextColor3=Color3.fromRGB(130,130,130)Keybinds.Visible=false;ColorTab.TextColor3=Color3.fromRGB(130,130,130)end)BindTab.MouseButton1Down:Connect(function()CharTab.TextColor3=Color3.fromRGB(130,130,130)Character.Visible=false;FarmTab.TextColor3=Color3.fromRGB(130,130,130)Auto.Visible=false;ItemTab.TextColor3=Color3.fromRGB(130,130,130)Logger.Visible=false;MiscTab.TextColor3=Color3.fromRGB(130,130,130)Misc.Visible=false;BindTab.TextColor3=Color3.fromRGB(255,255,255)Keybinds.Visible=true;ColorTab.TextColor3=Color3.fromRGB(130,130,130)end)ColorTab.MouseButton1Down:Connect(function()CharTab.TextColor3=Color3.fromRGB(130,130,130)Character.Visible=false;FarmTab.TextColor3=Color3.fromRGB(130,130,130)Auto.Visible=false;ItemTab.TextColor3=Color3.fromRGB(130,130,130)Logger.Visible=false;MiscTab.TextColor3=Color3.fromRGB(130,130,130)Misc.Visible=false;BindTab.TextColor3=Color3.fromRGB(130,130,130)Keybinds.Visible=false;ColorTab.TextColor3=Color3.fromRGB(255,255,255)end)
     end
     TB()
 
-    local function GM()
+    local TweenService = game:GetService("TweenService")
+    local TweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+    local function LoadGM()
         local function GodMode()
             local mt = getrawmetatable(game)
             setreadonly(mt, false)
@@ -766,30 +772,45 @@ local function InitFuncs() --- storing all our functions inside one function
                 return old(o, ...)
             end)
         end
-        local TweenService = game:GetService("TweenService")
-        local TweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
-        local new = TweenService:Create(TextButton, TweenInfo, {TextColor3 = Color3.fromRGB(16, 192, 255)})
-        local old = TweenService:Create(TextButton, TweenInfo, {TextColor3 = Color3.fromRGB(175, 175, 175)})
+        local new = TweenService:Create(GM, TweenInfo, {TextColor3 = Color3.fromRGB(16, 192, 255)})
+        local old = TweenService:Create(GM, TweenInfo, {TextColor3 = Color3.fromRGB(175, 175, 175)})
 
         local onoff = false
-        TextButton.MouseButton1Down:Connect(function()
+        GM.MouseButton1Down:Connect(function()
             if not onoff then onoff = true
                 new:play()
-                TextButton.Text = "ON"
+                GM.Text = "ON"
                 getgenv().godmode = true
                 GodMode()
             else onoff = false
                 old:play()
-                TextButton.Text = "OFF"
+                GM.Text = "OFF"
                 getgenv().godmode = false
                 GodMode()
             end
         end)
     end
-    GM()
+    LoadGM()
 
-    local function AF()
+    local function LoadTP()
+        local function NPC()
+            local LocalPlayer = game:GetService("Players").LocalPlayer
+            local Character = LocalPlayer.Character
+        
+            for i,v in pairs(workspace.NPCs:GetChildren()) do
+                if string.match(v.Name, tostring(TextBox.Text)) or string.match(string.lower(v.Name), tostring(TextBox.Text)) or string.match(string.upper(v.Name), tostring(TextBox.Text)) then
+                    Character.HumanoidRootPart.CFrame = v:FindFirstChild("HumanoidRootPart").CFrame
+                end
+            end
+        end
+
+        TextButton.MouseButton1Down:Connect(NPC)
+    end
+    LoadTP()
+
+
+    local function LoadAF()
         local function AutoFish()
             local player = game:GetService("Players").LocalPlayer
             local character = player.character
@@ -815,50 +836,53 @@ local function InitFuncs() --- storing all our functions inside one function
                 end
             end)
         end
-        local TweenService = game:GetService("TweenService")
-        local TweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
-        local new = TweenService:Create(TextButton_3, TweenInfo, {TextColor3 = Color3.fromRGB(16, 192, 255)})
-        local old = TweenService:Create(TextButton_3, TweenInfo, {TextColor3 = Color3.fromRGB(175, 175, 175)})
+        local new = TweenService:Create(AF, TweenInfo, {TextColor3 = Color3.fromRGB(16, 192, 255)})
+        local old = TweenService:Create(AF, TweenInfo, {TextColor3 = Color3.fromRGB(175, 175, 175)})
 
         local onoff = false
-        TextButton_3.MouseButton1Down:Connect(function()
+        AF.MouseButton1Down:Connect(function()
             if not onoff then onoff = true
                 new:play()
-                TextButton_3.Text = "ON"
+                AF.Text = "ON"
                 getgenv().autofish = true
                 AutoFish()
             else onoff = false
                 old:play()
-                TextButton_3.Text = "OFF"
+                AF.Text = "OFF"
                 getgenv().autofish = false
                 AutoFish()
             end
         end)
     end
-    AF()
+    LoadAF()
 
-    local function CF()
-        local function ChestFarn()
+
+    local function LoadCF()
+        local function ChestFarm()
 
         end
 
     end
-    CF()
 
-    local function IT()
-        local function Item(name)
-            local TextButton_5 = Instance.new("TextButton")
-            TextButton_5.Parent = ScrollingFrame
-            TextButton_5.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-            TextButton_5.BorderSizePixel = 0
-            TextButton_5.Size = UDim2.new(0, 492, 0, 25)
-            TextButton_5.Font = Enum.Font.Gotham
-            TextButton_5.Text = " Item Received | " .. tostring(name)
-            TextButton_5.TextColor3 = Color3.fromRGB(255, 255, 255)
-            TextButton_5.TextSize = 14.000
-            TextButton_5.TextXAlignment = Enum.TextXAlignment.Left
+
+    local function LoadIL()
+        local function Received(Item)
+            local TextButton_2 = Instance.new("TextButton")
+            TextButton_2.Parent = ScrollingFrame
+            TextButton_2.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+            TextButton_2.BorderSizePixel = 0
+            TextButton_2.Size = UDim2.new(0, 492, 0, 25)
+            TextButton_2.Font = Enum.Font.Gotham
+            TextButton_2.Text = " Item Received | " .. Item
+            TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextButton_2.TextSize = 14.000
+            TextButton_2.TextXAlignment = Enum.TextXAlignment.Left
+            TextButton_2.MouseButton1Down:Connect(function()
+                TextButton_2:Destroy()
+            end)
         end
+
         local Player = game:GetService("Players").LocalPlayer
         local PlayerGui = Player.PlayerGui
 
@@ -869,31 +893,17 @@ local function InitFuncs() --- storing all our functions inside one function
             if string.match(child.Name, "Notification") then
                 for i,v in pairs(Items:GetChildren()) do
                     if string.match(PlayerGui:WaitForChild("Notification").Frame.Background.Desc.Text, v.Name) then
-                        Item(v.Name)
+                        Received(v.Name)
                     end
                 end
             end
         end)
     end
-    IT()
+    LoadIL()
 
-    local function TP()
-        local function NPC()
-            local LocalPlayer = game:GetService("Players").LocalPlayer
-            local Character = LocalPlayer.Character
-        
-            for i,v in pairs(workspace.NPCs:GetChildren()) do
-                if string.match(v.Name, tostring(TextBox.Text)) or string.match(string.lower(v.Name), tostring(TextBox.Text)) or string.match(string.upper(v.Name), tostring(TextBox.Text)) then
-                    Character.HumanoidRootPart.CFrame = v:FindFirstChild("HumanoidRootPart").CFrame
-                end
-            end
-        end
-        TextButton_2.MouseButton1Down:Connect(NPC)
-    end
-    TP()
-
-    local function IV()
+    local function LoadIV()
         local function Invis()
+            local Player   = game:GetService('Players').LocalPlayer
             if getgenv().invis then
                 local Player   = game:GetService('Players').LocalPlayer
                 local Mouse    = Player:GetMouse()
@@ -939,49 +949,54 @@ local function InitFuncs() --- storing all our functions inside one function
                     Character.PrimaryPart.CFrame = StoredCF
                 end
             else
-                Character.Humanoid.Health = 0
+                Player.Character.Humanoid.Health = 0
             end
         end
-        local TweenService = game:GetService("TweenService")
-        local TweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-
-        local new = TweenService:Create(TextButton_6, TweenInfo, {TextColor3 = Color3.fromRGB(16, 192, 255)})
-        local old = TweenService:Create(TextButton_6, TweenInfo, {TextColor3 = Color3.fromRGB(175, 175, 175)})
+        
+        local new = TweenService:Create(IV, TweenInfo, {TextColor3 = Color3.fromRGB(16, 192, 255)})
+        local old = TweenService:Create(IV, TweenInfo, {TextColor3 = Color3.fromRGB(175, 175, 175)})
 
         local onoff = false
-        TextButton_6.MouseButton1Down:Connect(function()
+        IV.MouseButton1Down:Connect(function()
             if not onoff then onoff = true
                 new:play()
-                TextButton_6.Text = "ON"
+                IV.Text = "ON"
                 getgenv().invis = true
                 Invis()
             else onoff = false
                 old:play()
-                TextButton_6.Text = "OFF"
+                IV.Text = "OFF"
                 getgenv().invis = false
                 Invis()
             end
         end)
     end
-    IV()
-
-    local function IY()
+    LoadIV()
+        
+    local function LoadIY()
         local function IYString()
             loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
         end
-        TextButton_7.MouseButton1Down:Connect(IYString)
+        Yield.MouseButton1Down:Connect(IYString)
     end
-    IY()
-end
+    LoadIY()
+end 
 
-InitFuncs()
-
-
+Init()
 
 
---// Draggable Function \\---
+
+game:GetService("UserInputService").InputBegan:connect(function(input)
+    pcall(function()
+        if input.KeyCode == Enum.KeyCode.RightShift then
+            Main.Visible = not Main.Visible
+        end
+    end)
+end)
+
+
 local UserInputService = game:GetService("UserInputService")
-
+	
 local gui = Main
 
 local dragging
@@ -990,32 +1005,32 @@ local dragStart
 local startPos
 
 local function update(input)
-	local delta = input.Position - dragStart
-	gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    local delta = input.Position - dragStart
+    gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 end
 
 gui.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		dragging = true
-		dragStart = input.Position
-		startPos = gui.Position
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = gui.Position
 
-		input.Changed:Connect(function()
-			if input.UserInputState == Enum.UserInputState.End then
-				dragging = false
-			end
-		end)
-	end
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
 end)
 
 gui.InputChanged:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-		dragInput = input
-	end
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
 end)
 
 UserInputService.InputChanged:Connect(function(input)
-	if input == dragInput and dragging then
-		update(input)
-	end
+    if input == dragInput and dragging then
+        update(input)
+    end
 end)
