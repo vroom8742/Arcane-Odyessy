@@ -30,13 +30,14 @@ local function ANTIAFK()
 end
 
 local function HideIdentity()
-    wait(5)
-    pcall(function() 
-        for i,v in pairs(Character.Head.Overhead:GetChildren()) do 
-            v:Destroy() 
-            Character.Data.FullName:Destroy() 
-        end 
-    end)
+    repeat 
+        pcall(function() 
+            for i,v in pairs(Character.Head.Overhead:GetChildren()) do 
+                v:Destroy() 
+                Character.Data.FullName:Destroy() 
+            end 
+        end)
+    until Character.Head.Overhead:FindFirstChild("Player") == nil
 
     Character.HumanoidRootPart.CFrame = CFrame.new(-20288, 250, -6731)
 
@@ -93,7 +94,7 @@ function Enable:BossFarm(boolean)
         end
     end
 
-    wait(10)
+    wait(5)
 
     pcall(function()
         if boolean then
