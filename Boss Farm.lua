@@ -9,7 +9,8 @@ local RunService = game:GetService("RunService")
 local Remotes = game:GetService("ReplicatedStorage").RS.Remotes
 local DealWeaponDamage = Remotes.Combat.DealWeaponDamage;
 
-getgenv().count = 0
+getgenv().afkcount = 0
+getgenv().inviscount = 0
 local SAFEPOSITION = CFrame.new(-20288, 250, -6731)
 
 -- Tables --
@@ -18,69 +19,72 @@ local Exclusions = {TheExiled = false, Minotaur = false}
 
 -- Functions --
 local function ANTIAFK()
-    if getgenv().count == 0 then
+    if getgenv().afkcount == 0 then
         local vu = game:GetService("VirtualUser")
         game:GetService("Players").LocalPlayer.Idled:connect(function()
            vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
            wait(1)
            vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
         end)
-        getgenv().count = count + 1
+        getgenv().afkcount = getgenv().afkcount + 1
     end
 end
 
 local function Invisible()
-    pcall(function() 
-        for i,v in pairs(Character.Head.Overhead:GetChildren()) do 
-            v:Destroy() 
-            Character.Data.FullName:Destroy() 
-        end 
-    end)
-
-    Character.HumanoidRootPart.CFrame = CFrame.new(-20288, 250, -6731)
-
-    wait(1.25)
-    local Mouse    = LocalPlayer:GetMouse()
-                
-    local AutoRun  = false
-    local AirTP    = false
+    if getgenv().inviscount == 0 then
+        pcall(function() 
+            for i,v in pairs(Character.Head.Overhead:GetChildren()) do 
+                v:Destroy() 
+                Character.Data.FullName:Destroy() 
+            end 
+        end)
     
-    local function CheckRig()
-        if LocalPlayer.Character then
-            local Humanoid = LocalPlayer.Character:WaitForChild('Humanoid')
-            if Humanoid.RigType == Enum.HumanoidRigType.R15 then
-                return 'R15'
-            else
-                return 'R6'
+        Character.HumanoidRootPart.CFrame = CFrame.new(-20288, 250, -6731)
+    
+        wait(1.25)
+        local Mouse    = LocalPlayer:GetMouse()
+                    
+        local AutoRun  = false
+        local AirTP    = false
+        
+        local function CheckRig()
+            if LocalPlayer.Character then
+                local Humanoid = LocalPlayer.Character:WaitForChild('Humanoid')
+                if Humanoid.RigType == Enum.HumanoidRigType.R15 then
+                    return 'R15'
+                else
+                    return 'R6'
+                end
             end
         end
-    end
-
-
-    local StoredCF = Character.PrimaryPart.CFrame
-    if AirTP then
-        local Part = Instance.new('Part',workspace)
-        Part.Size = Vector3.new(5,0,5)
-        Part.Anchored = true
-        Part.CFrame = CFrame.new(Vector3.new(9999,9999,9999))
-        Character.PrimaryPart.CFrame = Part.CFrame*CFrame.new(0,3,0)
-        spawn(function()
-            wait(3)
-            Part:Destroy()
-        end)
-    end
-    if CheckRig() == 'R6' then
-        local Clone = Character.HumanoidRootPart:Clone()
-        Character.HumanoidRootPart:Destroy()
-        Clone.Parent = Character
-    else
-        local Clone = Character.LowerTorso.Root:Clone()
-        Character.LowerTorso.Root:Destroy()
-        Clone.Parent = Character.LowerTorso
-    end
-    if AirTP then
-        wait(1)
-        Character.PrimaryPart.CFrame = StoredCF
+    
+    
+        local StoredCF = Character.PrimaryPart.CFrame
+        if AirTP then
+            local Part = Instance.new('Part',workspace)
+            Part.Size = Vector3.new(5,0,5)
+            Part.Anchored = true
+            Part.CFrame = CFrame.new(Vector3.new(9999,9999,9999))
+            Character.PrimaryPart.CFrame = Part.CFrame*CFrame.new(0,3,0)
+            spawn(function()
+                wait(3)
+                Part:Destroy()
+            end)
+        end
+        if CheckRig() == 'R6' then
+            local Clone = Character.HumanoidRootPart:Clone()
+            Character.HumanoidRootPart:Destroy()
+            Clone.Parent = Character
+        else
+            local Clone = Character.LowerTorso.Root:Clone()
+            Character.LowerTorso.Root:Destroy()
+            Clone.Parent = Character.LowerTorso
+        end
+        if AirTP then
+            wait(1)
+            Character.PrimaryPart.CFrame = StoredCF
+        end
+        getgenv().inviscount = getgenv().inviscount + 1
     end
 end
 
