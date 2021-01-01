@@ -10,7 +10,6 @@ local Remotes = game:GetService("ReplicatedStorage").RS.Remotes
 local DealWeaponDamage = Remotes.Combat.DealWeaponDamage;
 
 getgenv().afkcount = 0
-getgenv().inviscount = 0
 local SAFEPOSITION = CFrame.new(-20288, 250, -6731)
 
 -- Tables --
