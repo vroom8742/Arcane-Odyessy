@@ -92,8 +92,10 @@ function Enable:BossFarm(boolean)
     local function BossKill()
         local function Magnitude()
             for i,v in pairs(workspace.NPCs:GetChildren()) do 
-                if (Character.HumanoidRootPart.Position - v:FindFirstChild('HumanoidRootPart').Position).magnitude <= 25 then
-                    return v
+                if v:FindFirstChild("HumanoidRootPart") then
+                    if (Character.HumanoidRootPart.Position - v:FindFirstChild('HumanoidRootPart').Position).magnitude <= 25 then
+                        return v
+                    end
                 end
             end
         end
@@ -126,5 +128,4 @@ end
 ANTIAFK()
 Enable:Invisible(true)
 Enable:BossFarm(true)
-
 
