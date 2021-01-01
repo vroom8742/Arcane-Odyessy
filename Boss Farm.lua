@@ -29,7 +29,7 @@ local function ANTIAFK()
     end
 end
 
-local function Invisible()
+local function HideIdentity()
     pcall(function() 
         for i,v in pairs(Character.Head.Overhead:GetChildren()) do 
             v:Destroy() 
@@ -122,7 +122,7 @@ function Enable:BossFarm(boolean)
 end
 
 ANTIAFK()
-Invisible()
+HideIdentity()
 Enable:BossFarm(true)
 
 
@@ -131,7 +131,6 @@ Enable:BossFarm(true)
     repeat wait() until char:FindFirstChild("HumanoidRootPart") and char:FindFirstChild("Head")
     wait(3)
     Character = char
-    Invisible()
+    HideIdentity()
     Enable:BossFarm(true)
 end)]]
-
