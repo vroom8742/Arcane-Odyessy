@@ -39,7 +39,7 @@ local function HideIdentity()
 
     Character.HumanoidRootPart.CFrame = CFrame.new(-20288, 250, -6731)
 
-    wait(2.5)
+    wait(3)
     local Mouse    = LocalPlayer:GetMouse()
                 
     local AutoRun  = false
@@ -127,11 +127,11 @@ Enable:BossFarm(true)
 
 
 -- if you want to loop when your dead still --
---[[LocalPlayer.CharacterAdded:Connect(function(char)
+LocalPlayer.CharacterAdded:Connect(function(char)
     repeat wait() until char:FindFirstChild("HumanoidRootPart") and char:FindFirstChild("Head")
     wait(3)
     Character = char
     HideIdentity()
     Enable:BossFarm(true)
-end)]]
+end)
 
