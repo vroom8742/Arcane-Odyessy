@@ -113,7 +113,7 @@ Enable:BossFarm(true)
 -- if you want to loop when your dead still --
 LocalPlayer.CharacterAdded:Connect(function(char)
     repeat wait() until char:FindFirstChild("HumanoidRootPart") and char:FindFirstChild("Head")
-    wait(5) -- waiting until overhead fully spawns in...
+    wait(5) -- waiting until overhead fully spawns in --
     Character = char
     HideIdentity()
     Enable:BossFarm(true)
