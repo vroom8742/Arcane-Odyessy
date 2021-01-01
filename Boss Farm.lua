@@ -29,62 +29,58 @@ local function ANTIAFK()
     end
 end
 
-function Enable:Invisible(boolean)
-    if boolean then
-        pcall(function() 
-            for i,v in pairs(Character.Head.Overhead:GetChildren()) do 
-                v:Destroy() 
-                Character.Data.FullName:Destroy() 
-            end 
-        end)
+local function Invisible()
+    pcall(function() 
+        for i,v in pairs(Character.Head.Overhead:GetChildren()) do 
+            v:Destroy() 
+            Character.Data.FullName:Destroy() 
+        end 
+    end)
+
+    Character.HumanoidRootPart.CFrame = CFrame.new(-20288, 250, -6731)
+
+    wait(2.5)
+    local Mouse    = LocalPlayer:GetMouse()
+                
+    local AutoRun  = false
+    local AirTP    = false
     
-        Character.HumanoidRootPart.CFrame = CFrame.new(-20288, 250, -6731)
-    
-        wait(2.5)
-        local Mouse    = LocalPlayer:GetMouse()
-                    
-        local AutoRun  = false
-        local AirTP    = false
-        
-        local function CheckRig()
-            if LocalPlayer.Character then
-                local Humanoid = LocalPlayer.Character:WaitForChild('Humanoid')
-                if Humanoid.RigType == Enum.HumanoidRigType.R15 then
-                    return 'R15'
-                else
-                    return 'R6'
-                end
+    local function CheckRig()
+        if LocalPlayer.Character then
+            local Humanoid = LocalPlayer.Character:WaitForChild('Humanoid')
+            if Humanoid.RigType == Enum.HumanoidRigType.R15 then
+                return 'R15'
+            else
+                return 'R6'
             end
         end
-    
-    
-        local StoredCF = Character.PrimaryPart.CFrame
-        if AirTP then
-            local Part = Instance.new('Part',workspace)
-            Part.Size = Vector3.new(5,0,5)
-            Part.Anchored = true
-            Part.CFrame = CFrame.new(Vector3.new(9999,9999,9999))
-            Character.PrimaryPart.CFrame = Part.CFrame*CFrame.new(0,3,0)
-            spawn(function()
-                wait(3)
-                Part:Destroy()
-            end)
-        end
-        if CheckRig() == 'R6' then
-            local Clone = Character.HumanoidRootPart:Clone()
-            Character.HumanoidRootPart:Destroy()
-            Clone.Parent = Character
-        else
-            local Clone = Character.LowerTorso.Root:Clone()
-            Character.LowerTorso.Root:Destroy()
-            Clone.Parent = Character.LowerTorso
-        end
-        if AirTP then
-            wait(1)
-            Character.PrimaryPart.CFrame = StoredCF
-        end
+    end
+
+
+    local StoredCF = Character.PrimaryPart.CFrame
+    if AirTP then
+        local Part = Instance.new('Part',workspace)
+        Part.Size = Vector3.new(5,0,5)
+        Part.Anchored = true
+        Part.CFrame = CFrame.new(Vector3.new(9999,9999,9999))
+        Character.PrimaryPart.CFrame = Part.CFrame*CFrame.new(0,3,0)
+        spawn(function()
+            wait(3)
+            Part:Destroy()
+        end)
+    end
+    if CheckRig() == 'R6' then
+        local Clone = Character.HumanoidRootPart:Clone()
+        Character.HumanoidRootPart:Destroy()
+        Clone.Parent = Character
     else
-        Character.Humanoid.Health = 0
+        local Clone = Character.LowerTorso.Root:Clone()
+        Character.LowerTorso.Root:Destroy()
+        Clone.Parent = Character.LowerTorso
+    end
+    if AirTP then
+        wait(1)
+        Character.PrimaryPart.CFrame = StoredCF
     end
 end
 
@@ -126,6 +122,15 @@ function Enable:BossFarm(boolean)
 end
 
 ANTIAFK()
-Enable:Invisible(true)
+Invisible()
 Enable:BossFarm(true)
+
+
+LocalPlayer.CharacterAdded:Connect(function(char)
+    Character = char
+    char:WaitForChild('Humanoid').Died:Connect(function()
+        Invisible()
+        Enable:BossFarm(true)
+    end)
+end)
 
