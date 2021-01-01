@@ -1,4 +1,4 @@
--- WARNING! USE THIS ONLY ON ALT! --
+-- WARNING! USE THIS ONLY ON A ALT! --
 
 -- Variables --
 local LocalPlayer = game:GetService("Players").LocalPlayer
