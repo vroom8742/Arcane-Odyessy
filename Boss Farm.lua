@@ -9,21 +9,26 @@ local RunService = game:GetService("RunService")
 local Remotes = game:GetService("ReplicatedStorage").RS.Remotes
 local DealWeaponDamage = Remotes.Combat.DealWeaponDamage;
 
+getgenv().count = 0
 local SAFEPOSITION = CFrame.new(-20288, 250, -6731)
 
 -- Tables --
 local Enable = {}
 local Exclusions = {TheExiled = false, Minotaur = false}
 
--- ANTI AFK --
-local vu = game:GetService("VirtualUser")
-game:GetService("Players").LocalPlayer.Idled:connect(function()
-   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-   wait(1)
-   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-end)
-
 -- Functions --
+local function ANTIAFK()
+    if getgenv().count == 0 then
+        local vu = game:GetService("VirtualUser")
+        game:GetService("Players").LocalPlayer.Idled:connect(function()
+           vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+           wait(1)
+           vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+        end)
+        getgenv().count = count + 1
+    end
+end
+
 local function Invisible()
     pcall(function() 
         for i,v in pairs(Character.Head.Overhead:GetChildren()) do 
@@ -115,6 +120,7 @@ function Enable:BossFarm(boolean)
     end)
 end
 
+ANTIAFK()
 Invisible()
 Enable:BossFarm(true)
 
