@@ -103,6 +103,7 @@ function Enable:BossFarm(boolean)
             RunService:BindToRenderStep("BossFarm", 100, BossKill)     
         else
             RunService:UnbindFromRenderStep("BossFarm")
+            Character.Humanoid.Health = 0
         end
     end)
 end
