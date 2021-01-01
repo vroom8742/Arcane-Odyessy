@@ -40,7 +40,7 @@ function Enable:Invisible(boolean)
     
         Character.HumanoidRootPart.CFrame = CFrame.new(-20288, 250, -6731)
     
-        wait(1.25)
+        wait(2.5)
         local Mouse    = LocalPlayer:GetMouse()
                     
         local AutoRun  = false
@@ -113,7 +113,7 @@ function Enable:BossFarm(boolean)
         end
     end
 
-    wait(2.5)
+    wait(5)
 
     pcall(function()
         if boolean then
