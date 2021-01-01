@@ -1,4 +1,4 @@
--- WARNING! USE THIS ONLY ON A ALT! --
+-- WARNING! USE THIS ONLY ON ALT! --
 
 -- Variables --
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -103,10 +103,10 @@ function Enable:BossFarm(boolean)
             RunService:BindToRenderStep("BossFarm", 100, BossKill)     
         else
             RunService:UnbindFromRenderStep("BossFarm")
-            Character.Humanoid.Health = 0
         end
     end)
 end
 
 Enable:BossFarm(true)
+
 
