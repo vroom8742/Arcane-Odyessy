@@ -126,11 +126,12 @@ Invisible()
 Enable:BossFarm(true)
 
 
-LocalPlayer.CharacterAdded:Connect(function(char)
+-- if you want to loop when your dead still --
+--[[LocalPlayer.CharacterAdded:Connect(function(char)
+    repeat wait() until char:FindFirstChild("HumanoidRootPart") and char:FindFirstChild("Head")
+    wait(3)
     Character = char
-    char:WaitForChild('Humanoid').Died:Connect(function()
-        Invisible()
-        Enable:BossFarm(true)
-    end)
-end)
+    Invisible()
+    Enable:BossFarm(true)
+end)]]
 
