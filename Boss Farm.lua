@@ -15,6 +15,14 @@ local SAFEPOSITION = CFrame.new(-20288, 250, -6731)
 local Enable = {}
 local Exclusions = {TheExiled = false, Minotaur = false}
 
+-- ANTI AFK --
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+
 -- Functions --
 local function Invisible()
     pcall(function() 
@@ -26,7 +34,7 @@ local function Invisible()
 
     Character.HumanoidRootPart.CFrame = CFrame.new(-20288, 250, -6731)
 
-    wait(1)
+    wait(1.25)
     local Mouse    = LocalPlayer:GetMouse()
                 
     local AutoRun  = false
