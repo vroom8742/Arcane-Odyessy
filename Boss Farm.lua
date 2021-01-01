@@ -30,8 +30,8 @@ local function ANTIAFK()
     end
 end
 
-local function Invisible()
-    if getgenv().inviscount == 0 then
+function Enable:Invisible(boolean)
+    if boolean then
         pcall(function() 
             for i,v in pairs(Character.Head.Overhead:GetChildren()) do 
                 v:Destroy() 
@@ -84,7 +84,8 @@ local function Invisible()
             wait(1)
             Character.PrimaryPart.CFrame = StoredCF
         end
-        getgenv().inviscount = getgenv().inviscount + 1
+    else
+        Character.Humanoid.Health = 0
     end
 end
 
@@ -119,14 +120,12 @@ function Enable:BossFarm(boolean)
             RunService:BindToRenderStep("BossFarm", 100, BossKill)     
         else
             RunService:UnbindFromRenderStep("BossFarm")
-            Character.Humanoid.Health = 0
         end
     end)
 end
 
 ANTIAFK()
-Invisible()
+Enable:Invisible(true)
 Enable:BossFarm(true)
-
 
 
