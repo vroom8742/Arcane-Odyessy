@@ -1,4 +1,4 @@
--- WARNING! USE THIS ONLY ON A ALT! --
+-- WARNING! UGLY CODE AHEAD!!!! DIDN'T BOTHER TRYING TO MAKE MORE BETTER SINCE IT WORKS ANYWAYS AS INTENDED BUT USE THIS ON A ALT IF YOU DON'T WANT TO GET CAUGHT! --
 
 -- Variables --
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -29,42 +29,49 @@ local function ANTIAFK()
     end
 end
 
-local function HideIdentity()
-    repeat wait()
-        pcall(function() 
-            for i,v in pairs(Character.Head.Overhead:GetChildren()) do 
-                v:Destroy() 
-                Character.Data.FullName:Destroy() 
-            end 
+function Enable:HideIdentity(boolean)
+    if boolean then
+        pcall(function()
+            RunService:UnbindFromRenderStep("HideName")
+            RunService:BindToRenderStep("HideName", 0, function() 
+                pcall(function() 
+                    for i,v in pairs(Character.Head.Overhead:GetChildren()) do 
+                        v:Destroy() 
+                        Character.Data.FullName:Destroy() 
+                    end 
+                end)
+            end)
         end)
-    until Character.Head.Overhead:FindFirstChild("Player") == nil
 
-    Character.HumanoidRootPart.CFrame = CFrame.new(-20288, 250, -6731)
+        Character.HumanoidRootPart.CFrame = CFrame.new(-20288, 250, -6731)
 
-    wait(3)
-    
-    local AutoRun  = false
-    
-    local function CheckRig()
-        if LocalPlayer.Character then
-            local Humanoid = LocalPlayer.Character:WaitForChild('Humanoid')
-            if Humanoid.RigType == Enum.HumanoidRigType.R15 then
-                return 'R15'
-            else
-                return 'R6'
+        wait(3)
+        
+        local AutoRun  = false
+        
+        local function CheckRig()
+            if LocalPlayer.Character then
+                local Humanoid = LocalPlayer.Character:WaitForChild('Humanoid')
+                if Humanoid.RigType == Enum.HumanoidRigType.R15 then
+                    return 'R15'
+                else
+                    return 'R6'
+                end
             end
         end
-    end
-
-    local StoredCF = Character.PrimaryPart.CFrame
-    if CheckRig() == 'R6' then
-        local Clone = Character.HumanoidRootPart:Clone()
-        Character.HumanoidRootPart:Destroy()
-        Clone.Parent = Character
+    
+        local StoredCF = Character.PrimaryPart.CFrame
+        if CheckRig() == 'R6' then
+            local Clone = Character.HumanoidRootPart:Clone()
+            Character.HumanoidRootPart:Destroy()
+            Clone.Parent = Character
+        else
+            local Clone = Character.LowerTorso.Root:Clone()
+            Character.LowerTorso.Root:Destroy()
+            Clone.Parent = Character.LowerTorso
+        end
     else
-        local Clone = Character.LowerTorso.Root:Clone()
-        Character.LowerTorso.Root:Destroy()
-        Clone.Parent = Character.LowerTorso
+        RunService:UnbindFromRenderStep("HideName")
     end
 end
 
@@ -106,16 +113,16 @@ function Enable:BossFarm(boolean)
 end
 
 ANTIAFK()
-HideIdentity()
+--
+Enable:HideIdentity(true)
 Enable:BossFarm(true)
 
 
--- if you want to loop when your dead  --
 LocalPlayer.CharacterAdded:Connect(function(char)
     repeat wait() until char:FindFirstChild("HumanoidRootPart") and char:FindFirstChild("Head")
-    wait(5) -- waiting until overhead fully spawns in --
+    wait(5)
     Character = char
-    HideIdentity()
+    Enable:HideIdentity(true)
     Enable:BossFarm(true)
 end)
 
