@@ -43,7 +43,6 @@ local function HideIdentity()
 
     wait(3)
     
-    local Mouse    = LocalPlayer:GetMouse()
     local AutoRun  = false
     
     local function CheckRig()
