@@ -37,7 +37,7 @@ local function HideIdentity()
                 Character.Data.FullName:Destroy() 
             end 
         end)
-    until Character.Head.Overhead:GetChildren() == nil
+    until Character.Head.Overhead:FindFirstChild("Player") == nil
 
     Character.HumanoidRootPart.CFrame = CFrame.new(-20288, 250, -6731)
 
@@ -111,7 +111,7 @@ HideIdentity()
 Enable:BossFarm(true)
 
 
--- if you want to loop when your dead --
+-- if you want to loop when your dead  --
 LocalPlayer.CharacterAdded:Connect(function(char)
     repeat wait() until char:FindFirstChild("HumanoidRootPart") and char:FindFirstChild("Head")
     wait(5) -- waiting until overhead fully spawns in --
