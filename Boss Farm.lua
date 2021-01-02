@@ -30,14 +30,14 @@ local function ANTIAFK()
 end
 
 local function HideIdentity()
-    repeat 
+    repeat wait()
         pcall(function() 
             for i,v in pairs(Character.Head.Overhead:GetChildren()) do 
                 v:Destroy() 
                 Character.Data.FullName:Destroy() 
             end 
         end)
-    until Character.Head.Overhead:FindFirstChild("Player") == nil
+    until Character.Head.Overhead:GetChildren() == nil
 
     Character.HumanoidRootPart.CFrame = CFrame.new(-20288, 250, -6731)
 
@@ -111,7 +111,7 @@ HideIdentity()
 Enable:BossFarm(true)
 
 
--- if you want to loop when your dead still --
+-- if you want to loop when your dead --
 LocalPlayer.CharacterAdded:Connect(function(char)
     repeat wait() until char:FindFirstChild("HumanoidRootPart") and char:FindFirstChild("Head")
     wait(5) -- waiting until overhead fully spawns in --
