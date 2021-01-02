@@ -1,5 +1,7 @@
+-- to do checks for bait then autobuy bait 
+
 local LocalPlayer = game:GetService("Players").LocalPlayer
-local Character = player.character
+local Character = LocalPlayer.Character
 
 local Rod
 for i,v in pairs(Character:GetChildren()) do
@@ -12,8 +14,9 @@ local FishState = game:GetService("ReplicatedStorage").RS.Remotes.Misc.FishState
 local ToolAction = game:GetService("ReplicatedStorage").RS.Remotes.Misc.ToolAction
 
 getgenv().AUTOFISH = true
+
 pcall(function()
-    while getgenv().AUTOFISH do
+    while getgenv().AUTOFISH do wait()
         if Character:FindFirstChild("FishBiteGoal") ~= nil then
             FishState:FireServer("Reel")
             ToolAction:FireServer(Rod)
@@ -23,4 +26,3 @@ pcall(function()
         end
     end
 end)
-
