@@ -1,12 +1,13 @@
 local Arcane = {}
 
+
 --// Gets Remotes in RS
-function Arcane:GetRemote(Name)
+function Arcane:GetRemote(name)
     local Remotes = game:GetService("ReplicatedStorage").RS.Remotes
 
     for i,v in pairs(Remotes:GetDescendants()) do
         if v:IsA("RemoteEvent") or v:IsA("RemoteFunction") then
-            if string.match(v.Name, tostring(Name)) then
+            if string.match(v.Name, tostring(name)) then
                 return v
             end
         end
@@ -15,12 +16,12 @@ end
 
 
 --// Gets Modules in RS
-function Arcane:GetModule(Name)
+function Arcane:GetModule(name)
     local Modules = game:GetService("ReplicatedStorage").RS.Modules
 
     for i,v in pairs(Modules:GetDescendants()) do
         if v:IsA("ModuleScript") then
-            if string.match(v.Name, tostring(Name)) then
+            if string.match(v.Name, tostring(name)) then
                 return require(v)
             end
         end
@@ -29,10 +30,25 @@ end
 
 
 --// Gets NPCs in workspace
-function Arcane:GetNPC(Name)
+function Arcane:GetNPC(name)
     for i,v in pairs(workspace.NPCs:GetChildren()) do
-        if string.match(v.Name, tostring(Name)) then
+        if string.match(v.Name, tostring(name)) then
             return v
+        end
+    end
+end
+
+
+--// Gets Closest NPC near you
+function Arcane:GetClosestNPC(range)
+    local LocalPlayer = game:GetService("Players").LocalPlayer
+    local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+
+    for i,v in pairs(workspace.NPCs:GetChildren()) do 
+        if v:FindFirstChild("HumanoidRootPart") then
+            if (Character:FindFirstChild('HumanoidRootPart').Position - v:FindFirstChild('HumanoidRootPart').Position).magnitude <= tonumber(range) then
+                return v
+            end
         end
     end
 end
@@ -51,3 +67,4 @@ end
 
 
 return Arcane
+
