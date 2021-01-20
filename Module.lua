@@ -49,4 +49,5 @@ function Arcane:BindLoop(name, func, boolean)
     end
 end
 
+
 return Arcane
